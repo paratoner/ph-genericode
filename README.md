@@ -1,8 +1,8 @@
-# ph-genericode
+# ph-genericode-net
 
 [![Dependencies](https://www.versioneye.com/user/projects/5641ff234d415e001b00070c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5641ff234d415e001b00070c)
 
-Java library for reading and writing OASIS GeneriCode and CVA files.
+.Net library for reading and writing OASIS GeneriCode and CVA files.
 It supports GeneriCode 0.4 and GeneriCode 1.0 as well as CVA 1.0.
 
 # News and noteworthy
