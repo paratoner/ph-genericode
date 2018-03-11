@@ -11,9 +11,10 @@ namespace GeneriCode
 {
     public class GenericXmlSerializer<T> : XmlSerializer where T : class
     {
+        //, new XmlRootAttribute("ContextValueAssociation") { Namespace = "http://docs.oasis-open.org/codelist/ns/ContextValueAssociation/1.0/" }
         public GenericXmlSerializer() : base(typeof(T))
         {
-
+            
         }
         public virtual T Deserialize(string xml)
         {
@@ -33,6 +34,10 @@ namespace GeneriCode
                     return sWriter.ToString();
                 }
             }
+        }
+        protected override XmlSerializationReader CreateReader()
+        {
+            return base.CreateReader();
         }
     }
 }
