@@ -40,13 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\EGenericodeDocumentType.cs" />
+    <Compile Include="Builder\GenericodeReader.cs" />
     <Compile Include="Cva\CCVA.cs" />
-    <Compile Include="Cva\CVA10Marshaller.cs" />
+    <Compile Include="Cva\CVA10XmlSerializer.cs" />
     <Compile Include="EmbeddedResourceHelper.cs" />
+    <Compile Include="Genericode\CGenericode.cs" />
+    <Compile Include="Genericode\Genericode04CodeListSerializer.cs" />
+    <Compile Include="Genericode\Genericode04CodeListSetSerializer.cs" />
+    <Compile Include="Genericode\Genericode04ColumnSetSerializer.cs" />
+    <Compile Include="Genericode\Genericode04Helper.cs" />
+    <Compile Include="Genericode\Genericode10CodeListSerializer.cs" />
+    <Compile Include="Genericode\Genericode10CodeListSetSerializer.cs" />
+    <Compile Include="Genericode\Genericode10ColumnSetSerializer.cs" />
+    <Compile Include="Genericode\Genericode10Helper.cs" />
+    <Compile Include="GenericXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GeneratedClasses\CVA\v10\ContextValueAssociation-1.0.designer.cs" />
+    <Compile Include="GeneratedClasses\Genericode\v10\genericode-1.0.designer.cs" />
+    <Compile Include="GeneratedClasses\Genericode\v04\genericode-code-list-0.4.designer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Builder\" />
     <Folder Include="Excel\" />
   </ItemGroup>
   <ItemGroup>
