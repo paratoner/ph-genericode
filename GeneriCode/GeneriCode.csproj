@@ -30,6 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,9 +57,15 @@
   <ItemGroup>
     <Compile Include="Builder\EGenericodeDocumentType.cs" />
     <Compile Include="Builder\GenericodeReader.cs" />
+    <Compile Include="Builder\GenericodeValidator.cs" />
+    <Compile Include="Builder\GenericodeWriter.cs" />
     <Compile Include="Cva\CCVA.cs" />
     <Compile Include="Cva\CVA10XmlSerializer.cs" />
     <Compile Include="EmbeddedResourceHelper.cs" />
+    <Compile Include="Excel\ExcelReadColumn.cs" />
+    <Compile Include="Excel\ExcelReadOptions.cs" />
+    <Compile Include="Excel\ExcelSheetToCodeList04.cs" />
+    <Compile Include="Excel\ExcelSheetToCodeList10.cs" />
     <Compile Include="Genericode\CGenericode.cs" />
     <Compile Include="Genericode\Genericode04CodeListSerializer.cs" />
     <Compile Include="Genericode\Genericode04CodeListSetSerializer.cs" />
@@ -61,7 +82,7 @@
     <Compile Include="GeneratedClasses\Genericode\v04\genericode-code-list-0.4.designer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Excel\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Schemas\ContextValueAssociation-1.0.xsd">
