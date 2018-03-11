@@ -1,6 +1,7 @@
 ﻿using GeneriCode.Genericode;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +14,17 @@ namespace GeneriCode.Builder
     {
         XmlReaderSettings settingsGC04 = new XmlReaderSettings();
         XmlReaderSettings settingsGC10 = new XmlReaderSettings();
+        CGenericode code = new CGenericode();
         public ValidationEventHandler validationEventHandler;
         public GenericodeValidator()
         {
-            foreach (var schema in CGenericode.GENERICODE_04_XSDS)
+            foreach (var schema in code.GENERICODE_04_XSDS)
             {
                 settingsGC04.Schemas.Add(schema);
             }
             settingsGC04.ValidationType = ValidationType.Schema;
 
-            foreach (var schema in CGenericode.GENERICODE_10_XSDS)
+            foreach (var schema in code.GENERICODE_10_XSDS)
             {
                 settingsGC10.Schemas.Add(schema);
             }
@@ -31,7 +33,7 @@ namespace GeneriCode.Builder
 
         public XmlDocument ValidateGC04CodeList(string xml)
         {
-            XmlReader reader = XmlReader.Create(xml, settingsGC04);
+            XmlReader reader = XmlReader.Create(new StringReader(xml), settingsGC04);
             XmlDocument document = new XmlDocument();
             document.Load(reader);
             ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
@@ -40,7 +42,7 @@ namespace GeneriCode.Builder
         }
         public XmlDocument ValidateGC10CodeList(string xml)
         {
-            XmlReader reader = XmlReader.Create(xml, settingsGC10);
+            XmlReader reader = XmlReader.Create(new StringReader(xml), settingsGC10);
             XmlDocument document = new XmlDocument();
             document.Load(reader);
             ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
