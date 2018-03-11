@@ -80,7 +80,7 @@ namespace GeneriCode.Genericode
          */
         public static IList<Column> GetAllColumns(ColumnSet columnSet)
         {
-            return columnSet.Column.Where(c => c != null).ToList();
+            return columnSet.Items.Where(c => c.GetType() == typeof(Column)).Select(c => (Column)c).ToList();
         }
 
         /**
@@ -93,7 +93,8 @@ namespace GeneriCode.Genericode
          */
         public static IList<string> GetAllColumnIDs(ColumnSet columnSet)
         {
-            return columnSet.Column.Where(c => c != null).Select(c => c.Id).ToList();
+            return columnSet.Items.Where(c => c.GetType() == typeof(Column)).Select(c => (Column)c)
+                .Select(c => c.Id).ToList();
         }
 
         /**
@@ -107,9 +108,7 @@ namespace GeneriCode.Genericode
          */
         public static Column GetColumnOfID(ColumnSet columnSet, string id)
         {
-            if (!string.IsNullOrEmpty(id))
-                return columnSet.Column.Where(c => c != null && c.Id.Equals(id)).FirstOrDefault();
-            return null;
+            return columnSet.Items.Where(c => c.GetType() == typeof(Column)).Select(c => (Column)c).Where(c => c.Id.Equals(id)).FirstOrDefault();
         }
 
         /**
@@ -122,7 +121,7 @@ namespace GeneriCode.Genericode
          */
         public static IList<Key> GetAllKeys(ColumnSet columnSet)
         {
-            return columnSet.Key.Where(k => k != null).ToList();
+            return columnSet.Items1.Where(k => k.GetType() == typeof(Key)).Select(k => (Key)k).ToList();
         }
 
         /**
@@ -135,7 +134,7 @@ namespace GeneriCode.Genericode
          */
         public static IList<string> GetAllKeyIDs(ColumnSet columnSet)
         {
-            return columnSet.Key.Where(k => k != null).Select(k => k.Id).ToList();
+            return columnSet.Items1.Where(k => k.GetType() == typeof(Key)).Select(k => (Key)k).Select(k => k.Id).ToList();
         }
 
         /**
@@ -149,9 +148,7 @@ namespace GeneriCode.Genericode
          */
         public static Key GetKeyOfID(ColumnSet columnSet, string id)
         {
-            if (!string.IsNullOrEmpty(id))
-                return columnSet.Key.Where(k => k != null && k.Id.Equals(id)).FirstOrDefault();
-            return null;
+            return columnSet.Items1.Where(k => k.GetType() == typeof(Key)).Select(k => (Key)k).Where(k => k.Id.Equals(id)).FirstOrDefault();
         }
 
         /**

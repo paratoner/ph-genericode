@@ -77,9 +77,9 @@
     <Compile Include="Genericode\Genericode10Helper.cs" />
     <Compile Include="GenericXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GeneratedClasses\Genericode\v10\genericode-1.0.designer.cs" />
-    <Compile Include="GeneratedClasses\Genericode\v04\genericode-code-list-0.4.designer.cs" />
     <Compile Include="GeneratedClasses\CVA\v10\ContextValueAssociation-1.0.designer.cs" />
+    <Compile Include="GeneratedClasses\Genericode\v04\genericode-code-list-0.4.designer.cs" />
+    <Compile Include="GeneratedClasses\Genericode\v10\genericode-1.0.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

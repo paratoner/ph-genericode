@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cva\CVA10SerializerTest.cs" />
+    <Compile Include="Genericode\Genericode04CodeListSerializerTest.cs" />
+    <Compile Include="Genericode\Genericode10CodeListSerializerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>

@@ -78,7 +78,7 @@ namespace GeneriCode.Excel
                                                                      aExcelColumn.GetDataType());
 
                 // add column
-                aColumnSet.Column.Add(aColumn);
+                aColumnSet.Items.Add(aColumn);
 
                 if (aExcelColumn.IsKeyColumn())
                 {
@@ -90,7 +90,7 @@ namespace GeneriCode.Excel
                                                                   aColumn);
 
                     // Add key
-                    aColumnSet.Key.Add(aKey);
+                    aColumnSet.Items1.Add(aKey);
                 }
             }
             ret.ColumnSet = aColumnSet;

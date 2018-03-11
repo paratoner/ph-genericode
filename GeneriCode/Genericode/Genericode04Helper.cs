@@ -20,7 +20,7 @@ namespace GeneriCode.Genericode
          *        {@link Column}.
          * @return The ID of the object
          */
-        public static string GetColumnElementID(Object columnElement)
+        public static string GetColumnElementID(object columnElement)
         {
             if (columnElement is ColumnRef)
                 return ((ColumnRef)columnElement).Id;
@@ -32,7 +32,7 @@ namespace GeneriCode.Genericode
                 KeyColumnRef keyColumnRef = keyColumnRefs.First();
                 if (keyColumnRef == null)
                     throw new ArgumentException("Key contains not KeyColumnRef!!");
-                Object aRef = keyColumnRef.Ref;
+                object aRef = keyColumnRef.Ref;
                 if (aRef is Column)
                     return ((Column)aRef).Id;
                 throw new ArgumentException("Unsupported referenced object: " +
@@ -80,7 +80,7 @@ namespace GeneriCode.Genericode
          */
         public static IList<Column> GetAllColumns(ColumnSet columnSet)
         {
-            return columnSet.Column.Where(c => c != null).ToList();
+            return columnSet.Items.Where(c => c.GetType() == typeof(Column)).Select(c => (Column)c).ToList();
         }
 
         /**
@@ -93,7 +93,8 @@ namespace GeneriCode.Genericode
          */
         public static IList<string> GetAllColumnIDs(ColumnSet columnSet)
         {
-            return columnSet.Column.Where(c => c != null).Select(c => c.Id).ToList();
+            return columnSet.Items.Where(c => c.GetType() == typeof(Column)).Select(c => (Column)c)
+                .Select(c => c.Id).ToList();
         }
 
         /**
@@ -107,7 +108,7 @@ namespace GeneriCode.Genericode
          */
         public static Column GetColumnOfID(ColumnSet columnSet, string id)
         {
-            return columnSet.Column.Where(c => c.Id.Equals(id)).FirstOrDefault();
+            return columnSet.Items.Where(c => c.GetType() == typeof(Column)).Select(c => (Column)c).Where(c => c.Id.Equals(id)).FirstOrDefault();
         }
 
         /**
@@ -120,7 +121,7 @@ namespace GeneriCode.Genericode
          */
         public static IList<Key> GetAllKeys(ColumnSet columnSet)
         {
-            return columnSet.Key.Where(k => k != null).ToList();
+            return columnSet.Items1.Where(k => k.GetType() == typeof(Key)).Select(k => (Key)k).ToList();
         }
 
         /**
@@ -133,7 +134,7 @@ namespace GeneriCode.Genericode
    */
         public static IList<string> GetAllKeyIDs(ColumnSet columnSet)
         {
-            return columnSet.Key.Where(k => k != null).Select(k => k.Id).ToList();
+            return columnSet.Items1.Where(k => k.GetType() == typeof(Key)).Select(k => (Key)k).Select(k => k.Id).ToList();
         }
 
         /**
@@ -147,7 +148,7 @@ namespace GeneriCode.Genericode
          */
         public static Key GetKeyOfID(ColumnSet columnSet, string id)
         {
-            return columnSet.Key.Where(k => k != null && k.Id.Equals(id)).FirstOrDefault();
+            return columnSet.Items1.Where(k => k.GetType() == typeof(Key)).Select(k => (Key)k).Where(k => k.Id.Equals(id)).FirstOrDefault();
         }
 
         /**
