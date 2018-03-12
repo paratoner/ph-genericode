@@ -110,7 +110,35 @@ namespace GeneriCode.Excel
                 Row aRow = new Row();
                 foreach (ExcelReadColumn<UseType> aExcelColumn in aExcelColumns)
                 {
-                    string sValue = aExcelRow.GetCell(aExcelColumn.GetIndex()).StringCellValue;
+                    var cell = aExcelRow.GetCell(aExcelColumn.GetIndex());
+                    string sValue = "";
+                    switch (cell.CellType)
+                    {
+                        case CellType.Numeric:
+                            sValue = cell.NumericCellValue.ToString();
+                            break;
+                        case CellType.String:
+                            sValue = cell.StringCellValue;
+                            break;
+                        case CellType.Boolean:
+                            sValue = cell.BooleanCellValue.ToString();
+                            break;
+                        case CellType.Error:
+                            sValue = cell.ErrorCellValue.ToString();
+                            break;
+                        case CellType.Blank:
+                            sValue = "";
+                            break;
+                        case CellType.Formula:
+                            sValue = cell.CellFormula;
+                            break;
+                        case CellType.Unknown:
+                            sValue ="";
+                            break;
+                        default:
+                            break;
+
+                    }
                     if (!string.IsNullOrEmpty(sValue) || aExcelColumn.GetUseType() == UseType.required)
                     {
                         // Create a single value in the current row
